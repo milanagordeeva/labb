@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник питания</title>
+    <link rel="icon" href="images\free-icon-muscles-3996870 (1).ico">
+    <link rel="stylesheet" href="food_program.css">
+</head>
+<body>
+    <div>
+        <h2>Дневник питания</h2>
+        <p>На случай, если вам важно следить за тем, что и сколько вы едите.</p>
+    </div>
+    <hr/>
+    <main>
+        <!-- кнопки для сортировки и фильтрации -->
+        <button onclick="sortByName()">Сортировать по названию</button>
+        <button onclick="sortByCalories()">Сортировать по калориям</button>
+        <button onclick="filterByCarbs(10)">Фильтровать по углеводам больше 10</button>
+
+        <!-- список продуктов -->
+        <div id="foodList"></div>
+
+        <!-- таблица продуктов -->
+        <table border="1" cellpadding="10" cellspacing="0">
+            <caption>Мой рацион</caption>
+            <thead>
+                <tr>
+                    <th>Еда</th>
+                    <th>Грамы</th>
+                    <th>Калории</th>
+                    <th>Белки</th>
+                    <th>Жиры</th>
+                    <th>Углеводы</th>
+                </tr>
+            </thead>
+            <tbody id="foodTable">
+            </tbody>
+        </table>
+    </main>
+    <hr/>
+    <footer align="center">
+        <p>&copy;2024 MyFit. Все права защищены.</p>
+        <p><a href="https://t.me/Wenomechainsama_Tumajarbisaun" title="Связаться с автором" target="_blank">Контакты</a> | <a href="mailto:milanagordeeva2004@gmail.com" title="Написать нам">Оставить отзыв</a></p>
+    </footer>
+
+    <script>
+        // функция для загрузки данных из XML
+        function loadData() {
+            fetch('food.xml')
+                .then(response => response.text())
+                .then(xmlString => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(xmlString, "text/xml");
+
+                    // получение всех продуктов
+                    const foods = xml.getElementsByTagName('food');
+                    const foodListDiv = document.getElementById('foodList');
+                    const foodTableBody = document.getElementById('foodTable');
+                    let foodArray = [];
+
+                    // заполнение массива продуктов
+                    for (let i = 0; i < foods.length; i++) {
+                        const name = foods[i].getElementsByTagName('name')[0].textContent;
+                        const grams = foods[i].getElementsByTagName('grams')[0].textContent;
+                        const calories = foods[i].getElementsByTagName('calories')[0].textContent;
+                        const proteins = foods[i].getElementsByTagName('proteins')[0].textContent;
+                        const fats = foods[i].getElementsByTagName('fats')[0].textContent;
+                        const carbs = foods[i].getElementsByTagName('carbs')[0].textContent;
+
+                        foodArray.push({ name, grams, calories, proteins, fats, carbs });
+
+                        // добавляем в список
+                        foodListDiv.innerHTML += `<p>${name} - ${grams} г - ${calories} калорий</p>`;
+
+                        // добавляем в таблицу
+                        foodTableBody.innerHTML += `
+                            <tr>
+                                <td>${name}</td>
+                                <td>${grams}</td>
+                                <td>${calories}</td>
+                                <td>${proteins}</td>
+                                <td>${fats}</td>
+                                <td>${carbs}</td>
+                            </tr>
+                        `;
+                    }
+
+                    // функции сортировки и фильтрации
+                    window.foodArray = foodArray;
+                });
+        }
+
+        // сортировка по имени
+        function sortByName() {
+            foodArray.sort((a, b) => a.name.localeCompare(b.name));
+            updateTable();
+        }
+
+        // сортировка по калориям
+        function sortByCalories() {
+            foodArray.sort((a, b) => a.calories - b.calories);
+            updateTable();
+        }
+
+        // фильтрация по углеводам
+        function filterByCarbs(minCarbs) {
+            const filtered = foodArray.filter(food => food.carbs > minCarbs);
+            updateTable(filtered);
+        }
+
+        // обновление таблицы с данными
+        function updateTable(data = foodArray) {
+            const foodTableBody = document.getElementById('foodTable');
+            foodTableBody.innerHTML = '';
+            data.forEach(item => {
+                foodTableBody.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.grams}</td>
+                        <td>${item.calories}</td>
+                        <td>${item.proteins}</td>
+                        <td>${item.fats}</td>
+                        <td>${item.carbs}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        // загружаем данные при загрузке страницы
+        window.onload = loadData;
+    </script>
+</body>
+</html>

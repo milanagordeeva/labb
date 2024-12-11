@@ -1,0 +1,9 @@
+<!ELEMENT foodDiary (food+)>
+<!ELEMENT food (name, grams, calories, proteins, fats, carbs)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT grams (#PCDATA)>
+<!ELEMENT calories (#PCDATA)>
+<!ELEMENT proteins (#PCDATA)>
+<!ELEMENT fats (#PCDATA)>
+<!ELEMENT carbs (#PCDATA)>
+

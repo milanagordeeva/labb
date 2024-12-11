@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foodDiary SYSTEM "food.dtd">
+<foodDiary>
+    <food>
+        <name>Вареная куриная грудка</name>
+        <grams>60</grams>
+        <calories>95</calories>
+        <proteins>18</proteins>
+        <fats>2</fats>
+        <carbs>0</carbs>
+    </food>
+    <food>
+        <name>Рис</name>
+        <grams>100</grams>
+        <calories>330</calories>
+        <proteins>6</proteins>
+        <fats>0</fats>
+        <carbs>72</carbs>
+    </food>
+    <food>
+        <name>Творожная масса</name>
+        <grams>100</grams>
+        <calories>148</calories>
+        <proteins>15</proteins>
+        <fats>4</fats>
+        <carbs>12</carbs>
+    </food>
+    <food>
+        <name>Помидоры</name>
+        <grams>100</grams>
+        <calories>18</calories>
+        <proteins>0</proteins>
+        <fats>0</fats>
+        <carbs>4</carbs>
+    </food>
+</foodDiary>
+

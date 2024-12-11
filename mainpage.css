@@ -1,0 +1,143 @@
+body{ /*Основной фон сайта с градиентом*/
+    
+    background: linear-gradient(to bottom,  #f8ffe8 0%,#abf5d6 33%,#77c680 100%); /*создаем градиент*/
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background-attachment:scroll;
+    padding-left: 19%; 
+    padding-right: 15%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.background{ /*Блок кода с тегом div, в котором располагается основная информация*/
+    background-color: #f0f7f0;
+    color: #0B2B26;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #0B2B26;
+}
+.welcome { /* Меняем цвет приветствия, который находитя в тэге div*/ 
+    color: #04850b;
+}
+
+main{
+    background-color: rgba(54, 107, 76, 0.199); /*полупрозрачный фон элемента, который задается через параметр rgba, где a - альфаканал*/
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 20px;
+    box-shadow: 0 0 6px #051F20;
+}
+
+.main-link { /* ссылки для перехода на следующие страницы*/
+    color: #051F20;
+    text-decoration: none; /*убираем нижнее подчеркивание ссылок*/
+} 
+.main-link:hover{ /* псевдокласс который используется при наведении курсора на ссылку */
+    color:#77c680;
+}
+
+.footer-link { /*ссылки в футере*/
+    color: #163832;
+    text-decoration: none; /*убираем нижнее подчеркивание ссылок*/
+}
+.footer-link:hover{ /* псевдокласс который используется при наведении курсора на ссылку */
+    color:#77c680; 
+}
+
+.nav-link { /*якорные ссылки для навигации по странице*/
+    color: #051F20;
+    text-decoration: none; /*убираем нижнее подчеркивание ссылок*/
+}
+.nav-link:hover{ /* псевдокласс который используется при наведении курсора на ссылку */
+    color:#77c680;
+}
+
+.headers{ /*заголовки*/
+    color:#051F20;
+}
+p{ /*текст*/
+    color: #0B2B26
+}
+#navig-1{
+    display: flex; /*включаем flexbox*/
+    justify-content: space-between; /*задаем расстояние между ссылками, space-between указывает на равномерное распределение расстя*/
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+#unord-list{ /* маркеры на список */ 
+    list-style-type: circle;
+}
+#unord-list li{ /* комбинированный селектор*/
+    margin-inline-start: 1%; /* отступ слева со значением 5 пикселей*/
+}
+form { 
+    position: fixed;
+    left: 0;
+    padding: 3%; /* внутренние отступы формы */
+    max-width: 200px; /* максимальная ширина формы */
+}
+label {
+    display: block; /* каждая метка располагается над полем ввода */
+    /* margin-bottom: 5px; */ /* отступ между меткой и полем ввода */
+    font-weight:bold; /* жирный текст для меток */
+    color: #333; /* цвет текста меток */
+}
+
+#username, #password{ /* Стили для полей ввода */
+    width: 90%; /* поля ввода занимают 90% от формы */
+    padding: 10px; /* внутренние отступы */
+    border: 1px solid #ccc; /* границы полей */
+    border-radius: 10px; /* скругленные углы полей */
+    box-sizing: border-box; /* Учет границ и отступов в общей ширине элемента */
+    font-size: 16px; /* Размер текста */
+    background-color: #fff; /* Белый фон для полей ввода */
+}
+
+#sign-in, #sign-up {/* cтили для кнопок */
+    width: 100%; /* кнопки занимают всю ширину формы */
+    padding: 10px; /* внутренние отступы */
+    border: none; /* убираем границы кнопок */
+    border-radius: 10px; /* скругленные углы кнопок */
+    font-size: 16px; /* размер текста */
+    font-weight: bold; /* жирный шрифт для кнопок */
+    cursor: pointer; /* Указатель мыши становится пальцем при наведении */
+    margin-bottom: 10px; /* Отступ между кнопками */
+}
+
+
+#sign-in{/* cтили для кнопки "Войти" */
+    background-color: #28a745; /* зеленый цвет фона для кнопки входа */
+    color: white; /* белый текст */
+}
+
+#sign-in:hover { /*псевдокласс для кнопки "Ыойти"*/
+    background-color: #218838; /* темнее при наведении */
+    transform: scale(1.1); /* увеличение кнопки при наведении */
+}
+
+#sign-up {/* стили для кнопки "Зарегистрироваться" */
+    background-color: #007bff; /* синий цвет для кнопки регистрации */
+    color: white; /* белый текст */
+}
+
+#sign-up:hover { /* псевдокласс для кнопки "Зарегистрироваться" */
+    background-color: #0056b3; /* темнее при наведении */
+    transform: scale(1.1); /* увеличение кнопки при наведении */
+}
+
+.image{
+    float: right; /* Обтекание слева */
+    margin-left: 1px; /* Отступ справа от изображения */
+    max-width: 40%; /* Чтобы изображение было адаптивным */
+    height: auto; /* Сохраняем пропорции */
+}
+#navig-1{
+    clear: both;
+}

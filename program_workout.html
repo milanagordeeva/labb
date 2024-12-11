@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Программа тренировок</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="program_workout.css">
+    <link rel="icon" href="C:\W3C Project\images\free-icon-muscles-3996870 (1).ico">
+    <!-- Подключаем Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <link rel="icon" href="images\free-icon-muscles-3996870 (1).ico">
+</head>
+
+<body>
+<div id="app" class="background">
+    <div class="info">
+        <h2>Зачем нужен дневник тренировок?</h2>
+        <p><b>Основная функция дневника</b> - повышение эффективности ваших тренировок. Большая часть людей, которые посещают спортзал, ставят перед собой разные цели тренировки - набрать мышечной массы, стать сильнее или рельефнее, похудеть и привести свое тело в порядок. <br/>Но очень многие быстро забрасывают свои начинания, не видя прогресса. Причина проста - отсутствие планирования, отсутствие контроля. Чтобы этого избежать и нужен дневник тренировок.</p>
+    </div>
+
+    <!-- Компонент для отображения программы тренировок -->
+    <main>
+        <table> 
+            <caption>Моя программа тренировок</caption>
+            <thead>
+                <tr><th>Упражнение</th><th>Подходы</th><th>Повторы</th><th>Вес, кг</th></tr>
+            </thead>
+            <tbody>
+                <tr v-for="(exercise, index) in exercises" :key="index">
+                    <td>{{ exercise.name }}</td>
+                    <td><input type="number" v-model="exercise.sets" min="1" /></td>
+                    <td><input type="number" v-model="exercise.reps" min="1" /></td>
+                    <td><input type="number" v-model="exercise.weights" min="1" /></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Итого</td>
+                    <td colspan="3">{{ totalExercises }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+
+    <footer align="center">
+        <p>&copy;2024 MyFit. Все права защищены.</p>
+        <p><a href="https://t.me/Wenomechainsama_Tumajarbisaun" title="Связаться с автором" target="_blank" class="footer-link">Контакты</a> | <a href="mailto:milanagordeeva2004@gmail.com" title="Написать нам" class="footer-link">Оставить отзыв</a></p>
+    </footer>
+</div>
+
+<script>
+    // Инициализация Vue.js
+    new Vue({
+        el: '#app',
+        data: {
+            // Данные о тренировках (упражнения)
+            exercises: [
+                { name: 'Приседания', sets: 3, reps: 12, weights: 20 },
+                { name: 'Выпады с гантелями', sets: 3, reps: 10, weights: 10 },
+                { name: 'Жим на грудь', sets: 3, reps: 12, weights: 10 }
+            ]
+        },
+        computed: {
+            // Вычисляем общее количество подходов и повторений
+            totalExercises: function () {
+                let total = 0;
+                this.exercises.forEach(exercise => {
+                    total += exercise.sets * exercise.reps * exercise.weights;
+                });
+                return total;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

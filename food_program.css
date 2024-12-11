@@ -1,0 +1,90 @@
+/* Основные стили страницы */
+body {
+    font-family: Arial, sans-serif; /* Простой шрифт */
+    background-color: #f0f8f0; /* Светло-зеленый фон */
+    color: #2c3e50; /* Темный цвет для текста */
+    margin: 0;
+    padding: 0;
+}
+
+/* Заголовок страницы */
+h2 {
+    color: #27ae60; /* Темно-зеленый цвет для заголовка */
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    font-size: 28px;
+}
+
+/* Описание под заголовком */
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #34495e; /* Более светлый серо-зеленый цвет */
+    padding: 0 20px;
+}
+
+/* Стили для таблицы */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff; /* Белый фон таблицы */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Тень для таблицы */
+}
+
+/* Заголовки таблицы */
+th {
+    background-color: #27ae60; /* Зеленый фон для заголовков */
+    color: #fff; /* Белый цвет текста */
+    padding: 12px;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Строки таблицы */
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+/* Стили для футера */
+footer {
+    background-color: #27ae60; /* Зеленый фон футера */
+    color: #ffffff; /* Белый цвет текста */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-link { /*ссылки в футере*/
+    color: #163832;
+    text-decoration: none; /*убираем нижнее подчеркивание ссылок*/
+}
+.footer-link:hover{ /* псевдокласс который используется при наведении курсора на ссылку */
+    color:#77c680; 
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Стиль для кнопки */
+button {
+    background-color: #27ae60;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px auto;
+    display: block;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
